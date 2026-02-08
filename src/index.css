@@ -1,0 +1,89 @@
+/* 引入 Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* ========== 深色主题变量（AGENTS.md：背景 #0a0a0a，文字 #ffffff）========== */
+@theme {
+  /* 背景色 */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-card: #1a1a1a;
+
+  /* 文字颜色 */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #666666;
+
+  /* 强调渐变色 */
+  --color-accent-start: #6366f1;
+  --color-accent-end: #a855f7;
+
+  /* 边框 */
+  --color-border: #2a2a2a;
+}
+
+/* ========== 全局基础样式 ========== */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 链接基础样式：可点击、与主题一致 */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--color-accent-start);
+    outline-offset: 2px;
+  }
+
+  /* 选中文字时的颜色 */
+  ::selection {
+    background-color: var(--color-accent-start);
+    color: var(--color-text-primary);
+  }
+
+  /* 深色主题下图片等媒体默认样式 */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* 自定义滚动条（深色主题） */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+}
